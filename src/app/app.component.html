@@ -8,46 +8,64 @@
 </header>
 
 <div class="content" role="main">
-  <h3 class="mb20">Live</h3>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card live">
-        <div class="card__head">
-          <div class="timer">
-            88:88:88
-          </div>
-          <a class="info" data-toggle="modal" href="#infoModal">
-            <i class="fas fa-info"></i>
-          </a>
-        </div>
-        <div class="card__body">
-          <div class="question-container">
-            <div class="logo">
-              <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+  <div class="accordion" id="accordionLive">
+    <div class="accordion_head">
+      <h3>Live</h3>
+      <div class="toggler_container">
+        <a class="" data-toggle="collapse" href="#collapseLive30Min" aria-expanded="true"
+          aria-controls="collapseLive30Min">
+          30 Minutes
+        </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseLive1day" aria-expanded="true"
+          aria-controls="collapseLive1day">
+          1 Day
+        </a>
+      </div>
+    </div>
+    <div id="collapseLive30Min" class="collapse show" data-parent="#accordionLive">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card live">
+            <div class="card__head">
+              <div class="timer">
+                88:88:88
+              </div>
+              <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a>
             </div>
-            <div class="question">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam illum eaque soluta sequi debitis quos fugit
-              quae laudantium mollitia sint
-            </div>
-          </div>
-          <a href="#" class="bet-counts">
-            10
-          </a>
-          <div class="row">
-            <div class="col-sm-6">
-              <button class="btn btn-full btn-primary">YES 1.5</button>
-            </div>
-            <div class="col-sm-6">
-              <button class="btn btn-full btn-danger">NO 0.8</button>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="logo">
+                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+                </div>
+                <div class="question">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam illum eaque soluta sequi debitis quos
+                  fugit
+                  quae laudantium mollitia sint
+                </div>
+              </div>
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <a href="#" class="bet-counts_number">10</a>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+                </div>
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
-      <div class="card live">
-
-      </div>
+    <div id="collapseLive1day" class="collapse" data-parent="#accordionLive">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis blanditiis praesentium doloremque quis debitis
+      perspiciatis, adipisci accusantium ratione veniam optio ducimus tenetur ipsa eaque minus. Voluptate itaque
+      architecto cupiditate eligendi?
     </div>
   </div>
 </div>
@@ -63,6 +81,39 @@
       </div>
       <div class="modal-body">
         ...
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bidModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Rate</label>
+            <input type="text" class="form-control" value="1.5" disabled>
+          </div>
+          <div class="form-group">
+            <label>Rate</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="text" class="form-control" value="10" disabled>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
