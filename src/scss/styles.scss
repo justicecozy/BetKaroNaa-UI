@@ -1,0 +1,124 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "base/colors";
+@import "utils/variables";
+@import "components/buttons";
+
+html,
+body {
+  height: 100%;
+  color: $color-dark;
+  @include xl {
+    font-size: 16px;
+  }
+}
+body {
+  margin: 0;
+  background: $body-color;
+}
+.spacer {
+  flex: 1;
+}
+header {
+  background: $body-color;
+  .toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 0 16px;
+    margin: 0 auto;
+    width: 100%;
+    @include xl {
+      max-width: 82rem;
+    }
+    #select-currency {
+      // background-color: $object-color;
+      padding: 0.5rem 0.8rem;
+      border-radius: $card-radius;
+      margin-right: 0.5rem;
+      // box-shadow: $outer-shadow;
+    }
+    #account {
+      // background-color: $object-color;
+      padding: 0.5rem 0.8rem;
+      border-radius: $card-radius;
+      // box-shadow: $outer-shadow;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  // align-items: center;
+  padding: 0 16px;
+  padding-top: 50px;
+  width: 100%;
+  @include xl {
+    max-width: 82rem;
+  }
+}
+
+label {
+  font-weight: 500;
+}
+.color-success {
+  color: $color-success;
+}
+.color-danger {
+  color: $color-danger;
+}
+.card {
+  background-color: #fff;
+  border: none;
+  box-shadow: $shadow-portlet;
+  .card__head {
+    padding: 0.5rem 1.875rem;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .timer {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background-color: $object-color;
+      border-radius: 50%;
+      cursor: pointer;
+      color: $color-text;
+      i {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .card__body {
+    padding: 1.875rem;
+    .question-container {
+      display: flex;
+      .logo {
+        padding-right: 15px;
+        img {
+        }
+      }
+      .question {
+        font-size: 1.2rem;
+      }
+    }
+    .bet-counts{
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $color-success;
+    }
+  }
+  &.live {
+  }
+  &.upcoming {
+  }
+}
