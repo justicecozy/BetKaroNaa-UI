@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   private web3: any;
   public metaMaskSelectedAddress;
   public masterContract;
-  public masterAddress = "0xedd76d5569dba86a44db12cda54345435a90b62d";
+  public masterAddress = "0x0ac3b5cf95a2d8a13f59eb91e3d3e3a335486c9b";
   public betKaroNaaAddress;
   public betDataAddress;
   public betContractAddress;
@@ -24,6 +24,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public betContractAbi = [{ "constant": true, "inputs": [], "name": "betType", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "maxBet", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "expireTime", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "result", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "startTime", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "userBettingPointsInFavour", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupplyAtClosing", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "minBet", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "disagreeToken", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "userClaimedReward", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "FeedSource", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "betClosed", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "agreeToken", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "PredictionValue", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "userBettingPointsAgainst", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [{ "name": "_minBet", "type": "uint256" }, { "name": "_maxBet", "type": "uint256" }, { "name": "_agree", "type": "address" }, { "name": "_disAgree", "type": "address" }, { "name": "_question", "type": "string" }, { "name": "_betType", "type": "uint256" }, { "name": "_startTime", "type": "uint256" }, { "name": "_expireTime", "type": "uint256" }, { "name": "_predictionValue", "type": "uint256" }, { "name": "_feedSource", "type": "string" }, { "name": "bdAdd", "type": "address" }], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "betId", "type": "address" }, { "indexed": false, "name": "question", "type": "string" }, { "indexed": false, "name": "betType", "type": "uint256" }], "name": "BetQuestion", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "_user", "type": "address" }, { "indexed": false, "name": "_betAmount", "type": "uint256" }, { "indexed": false, "name": "_prediction", "type": "bool" }], "name": "Bet", "type": "event" }, { "constant": true, "inputs": [{ "name": "prediction", "type": "bool" }], "name": "getPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_prediction", "type": "bool" }], "name": "placeBet", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "_value", "type": "uint256" }], "name": "closeBet", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
   public betKaroNaaContract;
   public betDataContract;
+  public allBets
   @ViewChild('countdown') counter: CountdownComponent;
   constructor() {
   }
@@ -55,8 +56,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
     // this.betDataContract = this.web3.eth.contract(this.betDataAbi).at(this.betDataAddress);
     
     // console.log(await this.betDataContract.minBet());
-    //  let allBets = await this.betDataContract.filters.BetQuestion();
-    //  console.log(allBets);
+    this.allBets = this.betDataContract.filters.BetQuestion({},{fromBlock:0, toBlock:'latest'});
+     console.log(this.allBets);
   }
 
   startTimer() {
