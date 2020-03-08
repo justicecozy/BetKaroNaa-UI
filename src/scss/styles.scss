@@ -23,6 +23,15 @@ body {
 .spacer {
   flex: 1;
 }
+.c--font-bold{
+  font-weight: 500;
+}
+.c--font-success{
+  color: $color-success;
+}
+.c--font-danger{
+  color: $color-danger;
+}
 // header {
 //   background: $body-color;
 //   .toolbar {
