@@ -51,6 +51,13 @@ body {
 //     }
 //   }
 // }
+#account {
+  background-color: $object-color;
+  padding: 0.5rem 0.8rem;
+  border-radius: $card-radius;
+  color: $color-text;
+  // box-shadow: $outer-shadow;
+}
 .wrapper {
   @include lg {
     padding-top: 80px;
@@ -125,15 +132,15 @@ label {
         font-size: 1.2rem;
       }
     }
-    .bet-counts{
+    .bet-counts {
       margin: 0;
       display: flex;
       align-items: center;
-      .bet-counts-title{
+      .bet-counts-title {
         margin-right: 10px;
         font-weight: 500;
       }
-      .bet-counts_number{
+      .bet-counts_number {
         font-size: 1.6rem;
         font-weight: 600;
         color: $color-success;
@@ -145,22 +152,22 @@ label {
   &.upcoming {
   }
 }
-.accordion{
-  .accordion_head{
+.accordion {
+  .accordion_head {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    h3{
+    h3 {
       margin-bottom: 0;
       margin-right: 30px;
     }
-    .toggler_container{
-      a{
+    .toggler_container {
+      a {
         color: $color-success;
         margin-left: 10px;
         font-weight: 500;
         font-size: 1rem;
-        &.collapsed{
+        &.collapsed {
           color: $color-text;
         }
       }
