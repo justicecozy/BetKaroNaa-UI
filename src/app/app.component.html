@@ -3,7 +3,7 @@
   <div class="toolbar" role="banner">
     <img height="40" src="assets/img/placeholder.com-logo1.png" />
     <div class="spacer"></div>
-    <a class="d-none d-sm-block" id="account">0x72...5358</a>
+    <a class="d-none d-sm-block" id="account">{{metaMaskSelectedAddress}}</a>
   </div>
 </header>
 
@@ -16,7 +16,7 @@
           aria-controls="collapseLive30Min">
           30 Minutes
         </a>
-        <a class="collapsed" data-toggle="collapse" href="#collapseLive1day" aria-expanded="true"
+        <a class="collapsed" data-toggle="collapse" href="#collapseLive1day" aria-expanded="false"
           aria-controls="collapseLive1day">
           1 Day
         </a>
@@ -28,7 +28,8 @@
           <div class="card live">
             <div class="card__head">
               <div class="timer">
-                88:88:88
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">$!h!:$!m!:$!s!
+                </countdown>
               </div>
               <a class="info" data-toggle="modal" href="#infoModal">
                 <i class="fas fa-info"></i>
@@ -69,7 +70,6 @@
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -85,7 +85,6 @@
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
