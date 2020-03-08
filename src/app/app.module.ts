@@ -7,7 +7,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { IndexComponent  } from './pages/index/index.component';
 import { StatusComponent  } from './pages/status/status.component';
 import { LedgerComponent  } from './pages/ledger/ledger.component';
-
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -40,10 +40,11 @@ const routes: Routes = [
   ],
   exports: [
     HeaderComponent,
-    RouterModule
+    RouterModule,
   ],
   imports: [
-    BrowserModule,CountdownModule,RouterModule.forRoot(routes)
+    BrowserModule,CountdownModule,RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

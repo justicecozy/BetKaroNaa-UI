@@ -11,85 +11,169 @@
           aria-controls="collapseLive1day">
           1 Day
         </a>
-        <a class="collapsed" data-toggle="collapse" href="#collapseLiveWeekday" aria-expanded="false"
-        aria-controls="collapseLiveWeekday">
-        5 Day
-      </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseLive5day" aria-expanded="false"
+          aria-controls="collapseLive5day">
+          5 Day
+        </a>
       </div>
     </div>
     <div id="collapseLive30Min" class="collapse show" data-parent="#accordionLive">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card live" *ngFor="let low of lowAr">
-            <div class="card__head">
-              <div class="timer">
-                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
-                  $!h!:$!m!:$!s!
-                </countdown>
-              </div>
-              <a class="info" data-toggle="modal" href="#infoModal">
-                <i class="fas fa-info"></i>
-              </a>
+      <div class="card live" *ngFor="let low of lowAr">
+        <div class="card__head">
+          <div class="timer">
+            <!-- <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+              $!h!:$!m!:$!s!
+            </countdown> -->
+          </div>
+        </div>
+        <div class="card__body">
+          <div class="question-container">
+            <div class="tikker">
+              {{low.stockName}}
             </div>
-            <div class="card__body">
-              <div class="question-container">
-                <div class="logo">
-                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
-                </div>
-                <div class="question"> 
-                 Will stock price of {{low.stockName}} increase ?
-                </div>
-              </div>
+            <div class="question">
+              Will stock price of {{low.stockName}} go above {{low.PredictionValue}} by the end of next 30 min ?
+            </div>
+          </div>
+          <div class="row mt20">
+            <!-- <div class="col-sm-4 mt20">
               <div class="bet-counts">
                 <div class="bet-counts-title">Total Bids: </div>
-                <a href="#" class="bet-counts_number">10</a>
+                <div class="bet-counts_number">10</div>
               </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
-                </div>
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
-                </div>
-              </div>
+            </div> -->
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary" (click)="clickedYes(low)">YES</button>
+              <!-- <div class="mt10">
+                <span class="c-badge c-badge--success c-badge--dot"></span>
+                <span class="c--font-bold c--font-success"> Yes pool points : {{low.agree}}</span>
+              </div> -->
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger" (click)="clickedNo(low)">NO</button>
+              <!-- <div class="mt10"> -->
+                <!-- <span class="c-badge c-badge--danger c-badge--dot"></span> -->
+                <!-- <span class="c--font-bold c--font-danger"> No pool points : {{low.disagree}}</span> -->
+              <!-- </div> -->
             </div>
           </div>
         </div>
       </div>
     </div>
     <div id="collapseLive1day" class="collapse" data-parent="#accordionLive">
+      <div class="card live" *ngFor="let medium of mediumAr">
+        <div class="card__head">
+          <div class="timer">
+            <!-- <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+              $!h!:$!m!:$!s!
+            </countdown> -->
+          </div>
+          <!-- <a class="info" data-toggle="modal" href="#infoModal">
+            <i class="fas fa-info"></i>
+          </a> -->
+        </div>
+        <div class="card__body">
+          <div class="question-container">
+            <div class="tikker">
+              {{medium.stockName}}
+            </div>
+            <div class="question">
+              Will stock price of {{medium.stockName}} go above {{medium.PredictionValue}} by the end of next 1 day ?
+            </div>
+          </div>
+          <div class="row mt20">
+            <!-- <div class="col-sm-4 mt20">
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <div class="bet-counts_number">10</div>
+              </div>
+            </div> -->
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary" (click)="clickedYes(medium)">YES</button>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger" (click)="clickedNo(medium)">NO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseLive5day" class="collapse" data-parent="#accordionLive">
+      <div class="card live" *ngFor="let high of highAr">
+        <div class="card__head">
+          <div class="timer">
+            <!-- <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+              $!h!:$!m!:$!s!
+            </countdown> -->
+          </div>
+        </div>
+        <div class="card__body">
+          <div class="question-container">
+            <div class="tikker">
+              {{high.stockName}}
+            </div>
+            <div class="question">
+              Will stock price of {{high.stockName}} go above {{high.PredictionValue}} by the end of next 5 days ?
+            </div>
+          </div>
+          <div class="row mt20">
+            <!-- <div class="col-sm-4 mt20">
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <div class="bet-counts_number">10</div>
+              </div>
+            </div> -->
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary" (click)="clickedYes(high)">YES</button>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger" (click)="clickedNo(high)">NO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion mt30" id="accordionUpcoming" hidden>
+    <div class="accordion_head">
+      <h3>Upcoming</h3>
+      <div class="toggler_container">
+        <a class="" data-toggle="collapse" href="#collapseUpcoming30Min" aria-expanded="true"
+          aria-controls="collapseUpcoming30Min">
+          30 Minutes
+        </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseUpcoming1day" aria-expanded="false"
+          aria-controls="collapseUpcoming1day">
+          1 Day
+        </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseUpcoming5day" aria-expanded="false"
+          aria-controls="collapseUpcoming5day">
+          5 Day
+        </a>
+      </div>
+    </div>
+    <div id="collapseUpcoming30Min" class="collapse show" data-parent="#accordionUpcoming">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="card live" *ngFor="let medium of mediumAr">
+        <div class="col-md-6">
+          <div class="card live">
             <div class="card__head">
               <div class="timer">
                 <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
                   $!h!:$!m!:$!s!
                 </countdown>
               </div>
-              <a class="info" data-toggle="modal" href="#infoModal">
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
                 <i class="fas fa-info"></i>
-              </a>
+              </a> -->
             </div>
             <div class="card__body">
               <div class="question-container">
-                <div class="logo">
-                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+                <div class="tikker">
+                  FB
                 </div>
-                <div class="question"> 
-                 Will stock price of {{medium.stockName}} increase ?
-                </div>
-              </div>
-              <div class="bet-counts">
-                <div class="bet-counts-title">Total Bids: </div>
-                <a href="#" class="bet-counts_number">10</a>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
-                </div>
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+                <div class="question">
+                  [Question Bind]
                 </div>
               </div>
             </div>
@@ -97,39 +181,55 @@
         </div>
       </div>
     </div>
-    <div id="collapseLiveWeekday" class="collapse" data-parent="#accordionLive">
+    <div id="collapseUpcoming1day" class="collapse" data-parent="#accordionUpcoming">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="card live" *ngFor="let high of highAr">
+        <div class="col-md-6">
+          <div class="card live">
             <div class="card__head">
               <div class="timer">
                 <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
                   $!h!:$!m!:$!s!
                 </countdown>
               </div>
-              <a class="info" data-toggle="modal" href="#infoModal">
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
                 <i class="fas fa-info"></i>
-              </a>
+              </a> -->
             </div>
             <div class="card__body">
               <div class="question-container">
-                <div class="logo">
-                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+                <div class="tikker">
+                  FB
                 </div>
-                <div class="question"> 
-                 Will stock price of {{high.stockName}} increase ?
+                <div class="question">
+                  [Question Bind]
                 </div>
               </div>
-              <div class="bet-counts">
-                <div class="bet-counts-title">Total Bids: </div>
-                <a href="#" class="bet-counts_number">10</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseUpcoming5day" class="collapse" data-parent="#accordionUpcoming">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card live">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
               </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a> -->
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="tikker">
+                  FB
                 </div>
-                <div class="col-sm-6">
-                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+                <div class="question">
+                  [Question Bind]
                 </div>
               </div>
             </div>
@@ -139,6 +239,9 @@
     </div>
   </div>
 </div>
+
+
+
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -155,33 +258,34 @@
   </div>
 </div>
 <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="bidModalLabel">Modal title</h5>
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="bidModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> -->
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label>Rate</label>
-            <input type="text" class="form-control" value="1.5" disabled>
+            <label>Token Rate for buying the [{{type}}] position</label>
+            <input type="text" class="form-control" value="{{tknValue}}" disabled>
           </div>
           <div class="form-group">
-            <label>Rate</label>
-            <input type="text" class="form-control">
+            <label>No of Tokens to be bought</label>
+            <input type="text" name="tokenBought" (keyup)="checkVal()" [(ngModel)]= "tokenBought" class="form-control">
           </div>
           <div class="form-group">
-            <label>Amount</label>
-            <input type="text" class="form-control" value="10" disabled>
+            <label>Total Amount in ETH</label>
+            <input type="text" name="tokenBoughtInETH" class="form-control" [(ngModel)]="tokenBoughtInETH" disabled>
           </div>
+          <i>When you click on the Buy Position button, an on-chain transaction shall be initiated via the MetaMask plugin. Please ensure that you have enough balance in your ETH address on MetaMask before submitting the transaction. </i>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" (click)="buyNow()" >Buy [{{type}}] position</button>
       </div>
     </div>
   </div>

@@ -23,6 +23,15 @@ body {
 .spacer {
   flex: 1;
 }
+.c--font-bold{
+  font-weight: 500;
+}
+.c--font-success{
+  color: $color-success;
+}
+.c--font-danger{
+  color: $color-danger;
+}
 // header {
 //   background: $body-color;
 //   .toolbar {
@@ -51,6 +60,13 @@ body {
 //     }
 //   }
 // }
+#account {
+  background-color: $object-color;
+  padding: 0.5rem 0.8rem;
+  border-radius: $card-radius;
+  color: $color-text;
+  // box-shadow: $outer-shadow;
+}
 .wrapper {
   @include lg {
     padding-top: 80px;
@@ -125,15 +141,15 @@ label {
         font-size: 1.2rem;
       }
     }
-    .bet-counts{
-      margin: 10px 0;
+    .bet-counts {
+      margin: 0;
       display: flex;
       align-items: center;
-      .bet-counts-title{
+      .bet-counts-title {
         margin-right: 10px;
         font-weight: 500;
       }
-      .bet-counts_number{
+      .bet-counts_number {
         font-size: 1.6rem;
         font-weight: 600;
         color: $color-success;
@@ -145,25 +161,37 @@ label {
   &.upcoming {
   }
 }
-.accordion{
-  .accordion_head{
+.accordion {
+  .accordion_head {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    h3{
+    h3 {
       margin-bottom: 0;
       margin-right: 30px;
     }
-    .toggler_container{
-      a{
+    .toggler_container {
+      a {
         color: $color-success;
         margin-left: 10px;
         font-weight: 500;
         font-size: 1rem;
-        &.collapsed{
+        &.collapsed {
           color: $color-text;
         }
       }
     }
   }
+}
+
+.tikker{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background-color: $object-color;
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: $card-radius;
 }

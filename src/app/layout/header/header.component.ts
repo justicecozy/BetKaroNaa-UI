@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { ethers } from 'ethers';
 declare var $: any;
 @Component({
   selector: "app-header",
@@ -6,7 +7,10 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-
+  provider = ethers.getDefaultProvider('kovan');
+  private ethereum: any;
+  private web3: any;
+  public metaMaskSelectedAddress
 
   constructor() {
 
@@ -35,9 +39,21 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       $(".aside-header-menu-mobile-overlay").remove();
       $('#navbarSupportedContent').removeClass('aside-header-menu-mobile--on');
     })
+     
+    this.initializeMetaMask();
 
   }
+
+  async initializeMetaMask() {
+    this.ethereum = window['ethereum'];
+    await this.ethereum.enable();
+    this.web3 = new ethers.providers.Web3Provider(this.ethereum);
+    this.metaMaskSelectedAddress = this.web3.provider.selectedAddress;
+    // this.startTimer();
+    // this.setup();
+  }
   ngAfterViewInit() {
+    // $("#noMetaMaskModal").modal("show");
   }
 
 }

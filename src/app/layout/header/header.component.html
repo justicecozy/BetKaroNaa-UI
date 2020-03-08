@@ -19,6 +19,37 @@
       <li class="nav-item" routerLink="/ledger-account" routerLinkActive="active">
         <a class="nav-link">Ledger Account</a>
       </li>
+      <li class="nav-item" id="account">
+        <a style="cursor: unset;">{{ metaMaskSelectedAddress }}</a>
+      </li>
     </ul>
   </div>
 </header>
+
+<div class="modal fade" id="mainNetModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="mainNetModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="py30">
+          <h2>Switch to Main Ethereum Network!</h2>
+          <p class="lead">lease switch to the Main Ethereum Network via Metamask to continue using GovBlocks</p>
+          <button class="btn btn-primary">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="noMetaMaskModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="noMetaMaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="py30">
+          <h2>Metamask not found!</h2>
+          <p class="lead">Connection to blockchain could not be established. Please install the Metamask plugin for your browser from <a href="https://metamask.io/" target="_blank">metamask.io</a> and then try again</p>
+          <button class="btn btn-primary">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
