@@ -9,7 +9,7 @@ import { CountdownComponent } from 'ngx-countdown';
 export class IndexComponent implements OnInit, AfterViewInit {
   title = 'BetKaroNaa';
 
-  // provider = ethers.getDefaultProvider('kovan');
+  provider = ethers.getDefaultProvider('kovan');
   private ethereum: any;
   private web3: any;
   public metaMaskSelectedAddress;

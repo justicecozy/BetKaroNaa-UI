@@ -11,6 +11,10 @@
           aria-controls="collapseLive1day">
           1 Day
         </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseLive5day" aria-expanded="false"
+          aria-controls="collapseLive5day">
+          5 Day
+        </a>
       </div>
     </div>
     <div id="collapseLive30Min" class="collapse show" data-parent="#accordionLive">
@@ -52,12 +56,190 @@
       </div>
     </div>
     <div id="collapseLive1day" class="collapse" data-parent="#accordionLive">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis blanditiis praesentium doloremque quis debitis
-      perspiciatis, adipisci accusantium ratione veniam optio ducimus tenetur ipsa eaque minus. Voluptate itaque
-      architecto cupiditate eligendi?
+      <div class="card live">
+        <div class="card__head">
+          <div class="timer">
+            <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+              $!h!:$!m!:$!s!
+            </countdown>
+          </div>
+          <!-- <a class="info" data-toggle="modal" href="#infoModal">
+            <i class="fas fa-info"></i>
+          </a> -->
+        </div>
+        <div class="card__body">
+          <div class="question-container">
+            <div class="tikker">
+              FB
+            </div>
+            <div class="question">
+              [Question Bind]
+            </div>
+          </div>
+          <div class="row mt20">
+            <div class="col-sm-4 mt20">
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <div class="bet-counts_number">10</div>
+              </div>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseLive5day" class="collapse" data-parent="#accordionLive">
+      <div class="card live">
+        <div class="card__head">
+          <div class="timer">
+            <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+              $!h!:$!m!:$!s!
+            </countdown>
+          </div>
+          <!-- <a class="info" data-toggle="modal" href="#infoModal">
+            <i class="fas fa-info"></i>
+          </a> -->
+        </div>
+        <div class="card__body">
+          <div class="question-container">
+            <div class="tikker">
+              FB
+            </div>
+            <div class="question">
+              [Question Bind]
+            </div>
+          </div>
+          <div class="row mt20">
+            <div class="col-sm-4 mt20">
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <div class="bet-counts_number">10</div>
+              </div>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+            </div>
+            <div class="col-sm-4 mt20">
+              <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion mt30" id="accordionUpcoming">
+    <div class="accordion_head">
+      <h3>Upcoming</h3>
+      <div class="toggler_container">
+        <a class="" data-toggle="collapse" href="#collapseUpcoming30Min" aria-expanded="true"
+          aria-controls="collapseUpcoming30Min">
+          30 Minutes
+        </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseUpcoming1day" aria-expanded="false"
+          aria-controls="collapseUpcoming1day">
+          1 Day
+        </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseUpcoming5day" aria-expanded="false"
+          aria-controls="collapseUpcoming5day">
+          5 Day
+        </a>
+      </div>
+    </div>
+    <div id="collapseUpcoming30Min" class="collapse show" data-parent="#accordionUpcoming">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card live">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
+              </div>
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a> -->
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="tikker">
+                  FB
+                </div>
+                <div class="question">
+                  [Question Bind]
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseUpcoming1day" class="collapse" data-parent="#accordionUpcoming">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card live">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
+              </div>
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a> -->
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="tikker">
+                  FB
+                </div>
+                <div class="question">
+                  [Question Bind]
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseUpcoming5day" class="collapse" data-parent="#accordionUpcoming">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card live">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
+              </div>
+              <!-- <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a> -->
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="tikker">
+                  FB
+                </div>
+                <div class="question">
+                  [Question Bind]
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
