@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ethers } from 'ethers';
-import Web3 from 'web3';
+// import Web3 from 'web3';
 import { CountdownComponent } from 'ngx-countdown';
 @Component({
-  selector: '',
+  selector: '.wrapper',
   templateUrl: './index.component.html'
 })
 export class IndexComponent implements OnInit, AfterViewInit {
   title = 'BetKaroNaa';
-  
+
   // provider = ethers.getDefaultProvider('kovan');
   private ethereum: any;
   private web3: any;
@@ -54,7 +54,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
     // this.betKaroNaaContract = this.new ethers.Contract(this.betKaroNaaAbi).at(this.betKaroNaaAddress);
     // this.betDataContract = this.web3.eth.contract(this.betDataAbi).at(this.betDataAddress);
-    
+
     // console.log(await this.betDataContract.minBet());
     this.allBets = this.betDataContract.filters.BetQuestion({},{fromBlock:0, toBlock:'latest'});
      console.log(this.allBets);
