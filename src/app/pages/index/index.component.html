@@ -11,12 +11,16 @@
           aria-controls="collapseLive1day">
           1 Day
         </a>
+        <a class="collapsed" data-toggle="collapse" href="#collapseLiveWeekday" aria-expanded="false"
+        aria-controls="collapseLiveWeekday">
+        5 Day
+      </a>
       </div>
     </div>
     <div id="collapseLive30Min" class="collapse show" data-parent="#accordionLive">
       <div class="row">
         <div class="col-sm-6">
-          <div class="card live">
+          <div class="card live" *ngFor="let low of lowAr">
             <div class="card__head">
               <div class="timer">
                 <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
@@ -32,10 +36,8 @@
                 <div class="logo">
                   <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
                 </div>
-                <div class="question">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam illum eaque soluta sequi debitis quos
-                  fugit
-                  quae laudantium mollitia sint
+                <div class="question"> 
+                 Will stock price of {{low.stockName}} increase ?
                 </div>
               </div>
               <div class="bet-counts">
@@ -56,9 +58,84 @@
       </div>
     </div>
     <div id="collapseLive1day" class="collapse" data-parent="#accordionLive">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis blanditiis praesentium doloremque quis debitis
-      perspiciatis, adipisci accusantium ratione veniam optio ducimus tenetur ipsa eaque minus. Voluptate itaque
-      architecto cupiditate eligendi?
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card live" *ngFor="let medium of mediumAr">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
+              </div>
+              <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a>
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="logo">
+                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+                </div>
+                <div class="question"> 
+                 Will stock price of {{medium.stockName}} increase ?
+                </div>
+              </div>
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <a href="#" class="bet-counts_number">10</a>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+                </div>
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="collapseLiveWeekday" class="collapse" data-parent="#accordionLive">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card live" *ngFor="let high of highAr">
+            <div class="card__head">
+              <div class="timer">
+                <countdown #countdown [config]="{leftTime: 30*60, demand: true}" (event)="finishTest($event)">
+                  $!h!:$!m!:$!s!
+                </countdown>
+              </div>
+              <a class="info" data-toggle="modal" href="#infoModal">
+                <i class="fas fa-info"></i>
+              </a>
+            </div>
+            <div class="card__body">
+              <div class="question-container">
+                <div class="logo">
+                  <img style="max-width: 50px;max-height: 40px;" src="assets/img/placeholder.com-logo1.png">
+                </div>
+                <div class="question"> 
+                 Will stock price of {{high.stockName}} increase ?
+                </div>
+              </div>
+              <div class="bet-counts">
+                <div class="bet-counts-title">Total Bids: </div>
+                <a href="#" class="bet-counts_number">10</a>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-primary">YES 1.5</button>
+                </div>
+                <div class="col-sm-6">
+                  <button data-toggle="modal" data-target="#bidModal" class="btn btn-full btn-danger">NO 0.8</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
