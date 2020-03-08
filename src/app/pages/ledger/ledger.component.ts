@@ -15,7 +15,7 @@ export class LedgerComponent implements OnInit, AfterViewInit {
   }
   demo() {
 
-    var dataJSONArray = JSON.parse('[{"id":"1","date":"2020/02/20","particulars":"From 0x0s55s To 0x5448","debit":"1.54 ETH","credit":""},{"id":"2","date":"2020/02/20","particulars":"From 0x0s55s To 0x5448","debit":"","credit":"1.65 ETH"}]');
+    var dataJSONArray = JSON.parse('[{"id":"1","date":"2020/03/08","particulars":"From 0x0s55s To 0x5448","debit":"1.54 ETH","credit":""},{"id":"2","date":"2020/03/08","particulars":"From 0x0s55s To 0x5448","debit":"","credit":"1.65 ETH"}]');
 
     var datatable = $('#local_data').cDatatable({
       // datasource definition
