@@ -28,12 +28,16 @@
               "src/assets"
             ],
             "styles": [
+              "./src/assets/plugins/bootstrap-select/bootstrap-select.css",
               "src/scss/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
+              "./src/assets/plugins/cookies/js.cookie.min.js",
+              "./src/assets/base/scripts.bundle.js",
               "./src/assets/plugins/popper/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./src/assets/plugins/bootstrap-select/bootstrap-select.js"
             ]
           },
           "configurations": {
