@@ -15,7 +15,7 @@ export class StatusComponent implements OnInit, AfterViewInit {
   }
   demo() {
 
-    var dataJSONArray = JSON.parse('[{"id":"1","date":"2020/02/20","prediction_name":"lorem ipsum doller sit amet","action_taken":"Yes","eth_invested":"1.25","status":"Won"}]');
+    var dataJSONArray = JSON.parse('[{"id":"1","date":"2020/02/20","prediction_name":"lorem ipsum doller sit amet","action_taken":"Yes","eth_invested":"1.25","status":"Won"},{"id":"1","date":"2020/02/20","prediction_name":"lorem ipsum doller sit amet","action_taken":"Yes","eth_invested":"1.25","status":"Claimed"}]');
 
     var datatable = $('#local_data').cDatatable({
       // datasource definition
@@ -71,6 +71,7 @@ export class StatusComponent implements OnInit, AfterViewInit {
         template: function (row) {
           var status = {
             "Won": { 'title': 'Won', 'class': 'c-badge--success' },
+            "Claimed": { 'title': 'Claimed', 'class': 'c-badge--success' },
             "Ongoing": { 'title': 'Ongoing', 'class': 'c-badge--warning' },
             "Lost": { 'title': 'Lost', 'class': 'c-badge--danger' }
           };
