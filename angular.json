@@ -131,6 +131,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BetKaroNaa"
+    }
+  },
+  "defaultProject": "BetKaroNaa",
+  "cli": {
+    "analytics": "e25d8abb-8076-433a-af94-a039648dc5f1"
+  }
 }
